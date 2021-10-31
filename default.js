@@ -1,0 +1,19 @@
+import {products} from './constants/products.js'
+import Product from './model/productSchema.js'
+
+
+const DefaultData = async () => {
+
+    try {
+        await Product.deleteMany({});
+        await Product.insertMany(products);
+        console.log("Data imported")
+    } catch (error) {
+        
+        console.log(error.message)
+    }
+
+}
+
+
+export default DefaultData
